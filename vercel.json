@@ -1,7 +1,5 @@
 {
-  "functions": {
-    "api/time.js": {
-      "runtime": "nodejs20.x"
-    }
-  }
+  "rewrites": [
+    { "source": "/api/time", "destination": "/api/time.js" }
+  ]
 }
