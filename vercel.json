@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/time.js": {
+      "runtime": "nodejs20.x"
+    }
+  }
+}
