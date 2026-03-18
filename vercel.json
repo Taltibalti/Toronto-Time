@@ -3,7 +3,7 @@
   "builds": [
     {
       "src": "api/time.js",
-      "use": "@vercel/edge"
+      "use": "@vercel/node"
     }
   ],
   "routes": [
