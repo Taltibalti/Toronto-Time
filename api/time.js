@@ -1,11 +1,17 @@
-export default function handler(req, res) {
-  // Set headers to prevent caching
-  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
-  res.setHeader('Pragma', 'no-cache');
-  res.setHeader('Expires', '0');
-  res.setHeader('Surrogate-Control', 'no-store');
+export const config = {
+  runtime: 'edge'
+}
 
-  // Get current Toronto time
-  const now = new Date().toLocaleString("en-US", { timeZone: "America/Toronto" });
-  res.status(200).json({ toronto_time: now });
+export default function handler(req) {
+  const datetime = new Date().toLocaleString("en-CA", { timeZone: "America/Toronto" });
+  return new Response(JSON.stringify({
+    datetime,
+    timezone: "America/Toronto"
+  }), {
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-store, max-age=0',
+      'x-timestamp': Date.now().toString()
+    }
+  });
 }
