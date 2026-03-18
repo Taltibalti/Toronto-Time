@@ -1,5 +1,15 @@
-{
-  "rewrites": [
-    { "source": "/api/time", "destination": "/api/time.js" }
+on{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/time.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/time",
+      "dest": "/api/time.js"
+    }
   ]
 }
